@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import {
   Columns3,
+  Download,
   Moon,
   Plus,
   Sun,
@@ -10,6 +11,7 @@ import {
 import type { Board } from '../types';
 import { useStore } from '../store';
 import { makeBoard, rehydrateBoard } from '../seed';
+import { useInstallPrompt } from '../hooks/useInstallPrompt';
 import { cn, pluralize } from '../utils';
 import { BoardDialog } from './BoardDialog';
 import { useToast } from './Toast';
@@ -22,6 +24,7 @@ interface SidebarProps {
 export function Sidebar({ open, onClose }: SidebarProps) {
   const { state, dispatch } = useStore();
   const { toast } = useToast();
+  const { canInstall, install } = useInstallPrompt();
   const [creating, setCreating] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -128,6 +131,13 @@ export function Sidebar({ open, onClose }: SidebarProps) {
             <Upload size={16} />
             Importar tablero
           </button>
+
+          {canInstall && (
+            <button type="button" className="sidebar-action" onClick={install}>
+              <Download size={16} />
+              Instalar aplicación
+            </button>
+          )}
 
           <input
             ref={fileInputRef}

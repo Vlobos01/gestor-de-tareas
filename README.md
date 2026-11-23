@@ -16,6 +16,7 @@
     <img src="https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white" alt="React 18" />
     <img src="https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white" alt="TypeScript 5" />
     <img src="https://img.shields.io/badge/Vite-6-646cff?logo=vite&logoColor=white" alt="Vite 6" />
+    <img src="https://img.shields.io/badge/PWA-installable-5A0FC8" alt="PWA installable" />
     <img src="https://img.shields.io/badge/License-MIT-10b981" alt="MIT License" />
   </p>
 </div>
@@ -37,6 +38,7 @@
 - **Autosave** — everything is stored in `localStorage`; no account or backend required.
 - **Export / import** — download a board as JSON and import it back later.
 - **Undo** — restore deleted tasks and boards from the toast notification.
+- **Installable PWA** — install it as an app on desktop or mobile and keep working offline.
 - **Responsive** — designed for desktop, tablet and mobile.
 - **Accessible details** — keyboard drag & drop, visible focus states, ARIA labels and reduced-motion support.
 
@@ -60,6 +62,7 @@
 | Drag & drop | [dnd-kit](https://dndkit.com/) |
 | Icons | [lucide-react](https://lucide.dev/) |
 | Styling | Hand-written CSS with design tokens and dark mode |
+| PWA | vite-plugin-pwa + Workbox |
 | Persistence | `localStorage` (no backend) |
 
 ### Getting started
@@ -86,6 +89,18 @@ Open **http://localhost:5173** — the app loads with two demo boards so you can
 | `npm run build` | Type-check and build for production |
 | `npm run preview` | Preview the production build |
 
+### Install as an app (PWA)
+
+The production build ships with a web app manifest and a service worker, so Flujo can be installed
+like a native app and used offline after the first visit.
+
+- **Chrome / Edge (desktop)** — click the install icon in the address bar, or use **Install application** in the sidebar.
+- **Android (Chrome)** — open the browser menu and choose **Install app**.
+- **iOS (Safari)** — tap **Share → Add to Home Screen**.
+
+Offline mode caches the app shell, assets and fonts. Tasks and boards are still stored locally on
+the device, so each installation keeps its own data.
+
 ### Project structure
 
 ```
@@ -98,6 +113,8 @@ src/
 │   ├── TaskDialog.tsx
 │   ├── ...
 │   └── ui.tsx           # Modal, menu, avatar, confirm primitives
+├── hooks/
+│   └── useInstallPrompt.ts  # PWA install prompt
 ├── App.tsx              # App shell and empty state
 ├── constants.ts         # Priorities, colors, filters
 ├── main.tsx             # Entry point and providers
@@ -152,7 +169,7 @@ discuss the approach.
 [MIT](LICENSE) © 2026 Agustín
 
 > Suggested repository topics: `react`, `typescript`, `kanban`, `task-manager`,
-> `drag-and-drop`, `vite`, `localstorage`.
+> `drag-and-drop`, `vite`, `pwa`, `localstorage`.
 
 ---
 
@@ -171,6 +188,7 @@ discuss the approach.
 - **Guardado automático** — todo vive en `localStorage`; no hace falta cuenta ni servidor.
 - **Exportar e importar** — descargá un tablero en JSON y volvé a importarlo cuando quieras.
 - **Deshacer** — recuperá tareas y tableros eliminados desde la notificación.
+- **PWA instalable** — instalala como app en escritorio o celular y seguí trabajando sin conexión.
 - **Responsive** — pensado para escritorio, tablet y celular.
 - **Detalles de accesibilidad** — drag & drop por teclado, foco visible, etiquetas ARIA y respeto por `prefers-reduced-motion`.
 
@@ -204,6 +222,18 @@ Abrí **http://localhost:5173**. La app arranca con dos tableros de ejemplo para
 | `npm run build` | Verifica tipos y genera el build de producción |
 | `npm run preview` | Previsualiza el build de producción |
 
+### Instalar como app (PWA)
+
+El build de producción incluye un manifest y un service worker, así que Flujo se puede instalar
+como una app nativa y usar sin conexión después de la primera visita.
+
+- **Chrome / Edge (escritorio)** — usá el ícono de instalación de la barra de direcciones o **Instalar aplicación** en la barra lateral.
+- **Android (Chrome)** — abrí el menú del navegador y elegí **Instalar aplicación**.
+- **iOS (Safari)** — tocá **Compartir → Añadir a pantalla de inicio**.
+
+El modo offline cachea la app, los assets y las fuentes. Las tareas y tableros se siguen guardando
+localmente en el dispositivo, así que cada instalación mantiene sus propios datos.
+
 ### Estructura del proyecto
 
 ```
@@ -216,6 +246,8 @@ src/
 │   ├── TaskDialog.tsx
 │   ├── ...
 │   └── ui.tsx           # Modal, menú, avatar y confirmación reutilizables
+├── hooks/
+│   └── useInstallPrompt.ts  # Instalación de la PWA
 ├── App.tsx              # Shell de la app y estado vacío
 ├── constants.ts         # Prioridades, colores y filtros
 ├── main.tsx             # Punto de entrada y providers
@@ -270,4 +302,4 @@ conversar el enfoque.
 [MIT](LICENSE) © 2026 Agustín
 
 > Temas sugeridos para el repositorio: `react`, `typescript`, `kanban`, `task-manager`,
-> `drag-and-drop`, `vite`, `localstorage`.
+> `drag-and-drop`, `vite`, `pwa`, `localstorage`.
