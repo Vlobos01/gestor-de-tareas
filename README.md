@@ -66,8 +66,8 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/flujo-kanban.git
-cd flujo-kanban
+git clone https://github.com/Vlobos01/gestor-de-tareas.git
+cd gestor-de-tareas
 
 # 2. Install dependencies (Node 18+)
 npm install
@@ -151,8 +151,8 @@ discuss the approach.
 
 [MIT](LICENSE) © 2026 Agustín
 
-> Replace `<your-username>` in the clone URL with your GitHub username. Suggested repository
-> topics: `react`, `typescript`, `kanban`, `task-manager`, `drag-and-drop`, `vite`, `localstorage`.
+> Suggested repository topics: `react`, `typescript`, `kanban`, `task-manager`,
+> `drag-and-drop`, `vite`, `localstorage`.
 
 ---
 
@@ -184,8 +184,8 @@ discuss the approach.
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/<tu-usuario>/flujo-kanban.git
-cd flujo-kanban
+git clone https://github.com/Vlobos01/gestor-de-tareas.git
+cd gestor-de-tareas
 
 # 2. Instalar dependencias (Node 18+)
 npm install
@@ -269,5 +269,5 @@ conversar el enfoque.
 
 [MIT](LICENSE) © 2026 Agustín
 
-> Reemplazá `<tu-usuario>` en la URL de clonado por tu usuario de GitHub. Temas sugeridos para el
-> repositorio: `react`, `typescript`, `kanban`, `task-manager`, `drag-and-drop`, `vite`, `localstorage`.
+> Temas sugeridos para el repositorio: `react`, `typescript`, `kanban`, `task-manager`,
+> `drag-and-drop`, `vite`, `localstorage`.
